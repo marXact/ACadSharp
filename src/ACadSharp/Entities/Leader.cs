@@ -35,7 +35,7 @@ public class Leader : Entity, IOrientable
 	/// Hard reference to associated annotation (mtext, tolerance, or insert entity).
 	/// </summary>
 	[DxfCodeValue(DxfReferenceType.Handle, 340)]
-	public Entity AssociatedAnnotation { get; internal set; }
+	public Entity AssociatedAnnotation { get; set; }
 
 	/// <summary>
 	/// Offset of last leader vertex from block reference insertion point.
