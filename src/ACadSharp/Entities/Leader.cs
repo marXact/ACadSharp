@@ -69,7 +69,9 @@ public class Leader : Entity, IOrientable
 				return result;
 			}
 
-			double angle = (this.Vertices[this.Vertices.Count - 2] - this.Vertices[this.Vertices.Count - 1]).AngleBetweenVectors(this.HorizontalDirection);
+			// AutoCAD points the horizontal direction (211) from the leader towards its annotation, so the last
+			// segment is a hook line when it runs along that direction (sample_AC1015_ascii.dxf: 211 = +X, 75 = 1).
+			double angle = (this.Vertices[this.Vertices.Count - 1] - this.Vertices[this.Vertices.Count - 2]).AngleBetweenVectors(this.HorizontalDirection);
 			return angle.IsZero();
 		}
 	}
